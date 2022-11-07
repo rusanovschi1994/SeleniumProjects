@@ -13,6 +13,7 @@ public class DragAndDrop {
         System.setProperty("webdriver.chrome.driver", "C:\\drivers\\selenium\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         try {
@@ -24,21 +25,27 @@ public class DragAndDrop {
 
             Actions action = new Actions(driver);
 
-//            //old_method
+            //old_method
+            action
+                    .moveToElement(dragElement)
+                    .clickAndHold()
+                    .pause(Duration.ofSeconds(2))
+                    .moveToElement(dropElement)
+                    .release()
+                    .build()
+                    .perform();
+
+//            //new method
 //            action
-//                    .moveToElement(dragElement)
-//                    .clickAndHold()
-//                    .pause(Duration.ofSeconds(2))
-//                    .moveToElement(dropElement)
-//                    .release()
+//                    .dragAndDrop(dragElement, dropElement)
 //                    .build()
 //                    .perform();
 
-            //new method
-            action
-                    .dragAndDrop(dragElement, dropElement)
-                    .build()
-                    .perform();
+            driver.get("https://www.youtube.com/");
+            Thread.sleep(5000);
+            driver.navigate().back();
+            Thread.sleep(5000);
+            driver.navigate().forward();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
