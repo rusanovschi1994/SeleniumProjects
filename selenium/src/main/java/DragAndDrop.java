@@ -49,6 +49,10 @@ public class DragAndDrop {
             Thread.sleep(4000);
             driver.navigate().refresh();
 
+            //getTitle(), getCurrentUrl()
+            System.out.println(driver.getTitle());
+            System.out.println(driver.getCurrentUrl());
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
