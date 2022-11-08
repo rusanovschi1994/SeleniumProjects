@@ -41,13 +41,13 @@ public class DragAndDrop {
 //                    .build()
 //                    .perform();
 
-            driver.get("https://www.youtube.com/");
-            Thread.sleep(5000);
+            driver.get("https://github.com/");
+            Thread.sleep(3000);
             driver.navigate().back();
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             driver.navigate().forward();
-            System.out.println(driver.getTitle());
-            System.out.println(driver.getCurrentUrl());
+            Thread.sleep(4000);
+            driver.navigate().refresh();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
