@@ -16,32 +16,45 @@ public class DropDown {
 
         System.setProperty("webdriver.chrome.driver", "C:\\drivers\\selenium\\chromedriver.exe");
 
-        driver = new ChromeDriver();
-        setDriver("https://www.facebook.com/");
+        //driver = new ChromeDriver();
 
-        driver.findElement(By.xpath("//a[@role=\"button\" and text()=\"Create new account\"]")).click();
+        for(int i = 0; i < 3; i++){
 
-        driverWait = (new WebDriverWait(driver, Duration.ofSeconds(5)));
-        driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class=\"mbs _52lq fsl fwb fcb\"]")));
-        driverWait.until(ExpectedConditions.titleContains("Facebook"));
+            driver = new ChromeDriver();
+            setDriver("https://www.facebook.com/");
 
-        //complete registration data
-        completeRegistrationData("First name", "Vitalie");
-        completeRegistrationData("Last name", "Tiltu");
-        completeRegistrationData("email", "rusanovschi1994@gmail.com");
-        completeRegistrationData("Re-enter email", "rusanovschi1994@gmail.com");
-        completeRegistrationData("password", "password1111");
+            driver.findElement(By.xpath("//a[@role=\"button\" and text()=\"Create new account\"]")).click();
+
+            driverWait = (new WebDriverWait(driver, Duration.ofSeconds(5)));
+            driverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class=\"mbs _52lq fsl fwb fcb\"]")));
+            driverWait.until(ExpectedConditions.titleContains("Facebook"));
+
+            //complete registration data
+            completeRegistrationData("First name", "Vitalie");
+            completeRegistrationData("Last name", "Tiltu");
+            completeRegistrationData("email", "rusanovschi1994@gmail.com");
+            completeRegistrationData("Re-enter email", "rusanovschi1994@gmail.com");
+            completeRegistrationData("password", "password1111");
 
 
-        //select Birthday
-        selectOption("Month", "Sep");
-        selectOption("Day", "4");
-        selectOption("Year", "1994");
+            //select Birthday
+            selectOption("Month", "Sep");
+            selectOption("Day", "4");
+            selectOption("Year", "1994");
 
-        //select gender
-        selectGenderButton("Male");
+            //select gender
+            selectGenderButton("Male");
 
-        driver.findElement(By.xpath("//div[@class=\"_1lch\"]/button[text()=\"Sign Up\"]")).click();
+            //sign in
+            driver.findElement(By.xpath("//div[@class=\"_1lch\"]/button[text()=\"Sign Up\"]")).click();
+
+
+            driverWait
+                    .until(ExpectedConditions
+                            .presenceOfElementLocated(By.xpath("//div[@class=\"rfloat _ohf\"]/h2[text()=\"Enter security code\"]")));
+            driver.quit();
+
+        }
     }
 
     public static void setDriver(String url){
