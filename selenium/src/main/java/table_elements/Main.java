@@ -31,6 +31,7 @@ public class Main {
         //getValueFromCell(int rowNumber, String columnName)
         System.out.println(table.getValueFromCell(4, "Contact"));
         System.out.println(table.getValueFromCell(6, "Country"));
+        System.out.println(table.getValueFromCell(2, "Company"));
 
         driver.quit();
     }
