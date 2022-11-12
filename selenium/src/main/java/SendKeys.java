@@ -1,11 +1,15 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.FileDetector;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.Key;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
+import java.util.logging.FileHandler;
 
 public class SendKeys {
 
@@ -27,6 +31,18 @@ public class SendKeys {
         Thread.sleep(3000);
         searchInput.sendKeys(paste, Keys.ENTER);
         Thread.sleep(4000);
+
+        //Take screenshot
+        Date data = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy_hh-mm-ss");
+        String dataFormat = "screenshot_" + format.format(data) + ".png";
+
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\drivers\\selenium\\" + dataFormat));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         driver.quit();
     }
