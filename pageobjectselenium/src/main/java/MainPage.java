@@ -17,9 +17,9 @@ public class MainPage {
     private By signUpFormButton = By.xpath("//button[@type=\"submit\"]");
 
 
-    public SignInPage clickSignIn(){
+    public LoginPage clickSignIn(){
         driver.findElement(singInButton).click();
-        return new SignInPage(driver);
+        return new LoginPage(driver);
     }
 
     public SignUpPage clickSignUp(){
