@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
@@ -13,7 +14,8 @@ public class MainClass {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickSignIn();
 
-        LoginPage loginPage = new LoginPage(driver);
+        //LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.loginWithInvalidCreds("rusanov@gmail.com", "andrei1111");
     }
 
