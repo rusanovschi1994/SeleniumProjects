@@ -11,53 +11,44 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//input[@id=\"login_field\"]")
-    private WebElement usernameField;
-
-    @FindBy(xpath = "//input[@id=\"password\"]")
-    private WebElement passwordField;
-
-    @FindBy(xpath = "//input[@type=\"submit\"]")
-    private WebElement signInButton;
-
-    @FindBy(xpath = "//div[contains(@class, 'auth-form-header')]/h1")
-    private WebElement heading;
-
-    @FindBy(xpath = "//div[@id=\"js-flash-container\"]//div[@role=\"alert\"]")
-    private WebElement loginError;
-
-    @FindBy(xpath = "//a[text()=\"Create an account\"]")
-    private WebElement createAccountLink;
+    private final By usernameField = By.xpath("//input[@id=\"login_field\"]");
+    private final By passwordField = By.xpath("//input[@id=\"password\"]");
+    private final By signInButton = By.xpath("//input[@type=\"submit\"]");
+    private final By heading = By
+            .xpath("//div[contains(@class, 'auth-form-header')]/h1[text() = \"Sign in to GitHub\"]");
+    private final By loginError = By.xpath("//div[@id=\"js-flash-container\"]//div[@role=\"alert\"]");
+    private final By createAccountLink = By.xpath("//a[text()=\"Create an account\"]");
 
 
     public LoginPage typeUsername(String username){
-        usernameField.sendKeys(username);
+        driver.findElement(usernameField).sendKeys(username);
         return new LoginPage(driver);
     }
 
     public LoginPage typePassword(String password){
-        passwordField.sendKeys(password);
+        driver.findElement(passwordField).sendKeys(password);
         return new LoginPage(driver);
     }
 
     public LoginPage loginWithInvalidCreds(String username, String password){
         this.typeUsername(username);
         this.typePassword(password);
-        signInButton.click();
+        driver.findElement(signInButton).click();
         return new LoginPage(driver);
     }
 
     public String getHeadingText(){
-        return heading.getText();
+
+        return driver.findElement(heading).getText();
     }
 
-    public String getLoginError(){
+    public String getLoginErrorText(){
 
-        return loginError.getText();
+        return driver.findElement(loginError).getText();
     }
 
     public SignUpPage createAccount(){
-        createAccountLink.click();
+        driver.findElement(createAccountLink).click();
         return new SignUpPage(driver);
     }
 }
