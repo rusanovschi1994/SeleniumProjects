@@ -32,14 +32,14 @@ public class MainPage {
         return this;
     }
 
-    public SignUpPage signUpForm(){
+    public SignUpPage signUpFormWithEmail(){
         driver.findElement(signUpFormButton).click();
         return new SignUpPage(driver);
     }
 
-    public SignUpPage registration(String email){
+    public SignUpPage registrationForm(String email){
         this.typeEmail(email);
-        this.signUpForm();
+        this.signUpFormWithEmail();
         return new SignUpPage(driver);
     }
 

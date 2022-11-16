@@ -30,11 +30,25 @@ public class MainPageTest {
     }
 
     @Test
+    public void signUpTest(){
+        SignUpPage signUpPage = main.clickSignUp();
+        String heading = signUpPage.getHeadingText();
+        Assert.assertEquals("Welcome to GitHub! Let's begin the adventure", heading);
+    }
+
+    @Test
     public void loginWithInvalidCredsTest(){
         LoginPage loginPage = main.clickSignIn();
         loginPage.loginWithInvalidCreds("test123", "qweqweqwe");
         String error = loginPage.getLoginErrorText();
         Assert.assertEquals("Incorrect username or password.", error);
+    }
+
+    @Test
+    public void signUpWithInvalidEmail(){
+        SignUpPage signUpPage = main.registrationForm("andrei@gmail.com");
+        String errorEmail = signUpPage.getErrorEmail();
+        Assert.assertEquals("Email is invalid or already taken", errorEmail);
     }
 
     @After

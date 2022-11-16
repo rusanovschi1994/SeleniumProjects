@@ -12,11 +12,14 @@ public class MainClass {
 
         getDriver("https://github.com/");
         MainPage mainPage = new MainPage(driver);
-        mainPage.clickSignIn();
+        mainPage.clickSignUp();
+
+        SignUpPage signUpPage = new SignUpPage(driver);
+        signUpPage.registerContinueWithEmail("andrei@mail.ru");
 
         //LoginPage loginPage = new LoginPage(driver);
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        loginPage.loginWithInvalidCreds("rusanov@gmail.com", "andrei1111");
+//        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+//        loginPage.loginWithInvalidCreds("rusanov@gmail.com", "andrei1111");
     }
 
     public static void getDriver(String url){
