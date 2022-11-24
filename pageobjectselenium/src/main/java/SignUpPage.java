@@ -1,9 +1,16 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.swing.plaf.basic.BasicButtonUI;
+import java.time.Duration;
 
 public class SignUpPage {
 
     private WebDriver driver;
+    private WebDriverWait webDriverWait;
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
@@ -24,6 +31,9 @@ public class SignUpPage {
     private final By errorPassword = By
             .xpath("//p[@id=\"password-err\"]/p[contains(@class, 'password-validity-summary')]");
 
+    private final By errorUsername = By
+            .xpath("//p[@id=\"login-err\"]//div[contains(text(), 'Username')]");
+
     public SignUpPage typeEmail(String email){
         driver.findElement(emailField).sendKeys(email);
         return this;
@@ -41,12 +51,14 @@ public class SignUpPage {
 
     public SignUpPage registerContinueWithEmail(String email){
         this.typeEmail(email);
+        //setWebDriverWait(registerEmailButton);
         driver.findElement(registerEmailButton).click();
         return this;
     }
 
     public SignUpPage registerContinueWithPassword(String password){
         this.typePassword(password);
+        //setWebDriverWait(registerPasswordButton);
         driver.findElement(registerPasswordButton).click();
         return this;
     }
@@ -67,5 +79,16 @@ public class SignUpPage {
 
     public String getErrorPassword(){
         return driver.findElement(errorPassword).getText();
+    }
+
+    public String getErrorUsername(){
+
+        return driver.findElement(errorUsername).getText();
+    }
+
+    public WebDriverWait setWebDriverWait(By field){
+        webDriverWait = (new WebDriverWait(driver, Duration.ofSeconds(10)));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(field));
+        return webDriverWait;
     }
 }
