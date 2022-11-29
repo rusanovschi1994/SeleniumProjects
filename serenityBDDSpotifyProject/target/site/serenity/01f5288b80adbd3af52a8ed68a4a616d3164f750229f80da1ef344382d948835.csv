@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"When sign up","Type invalid values","SUCCESS","2022-11-29T15:05:35.560364+02:00[Europe/Chisinau]","0.0","22.46"
+"When sign up","Sign up with empty password","SUCCESS","2022-11-29T15:05:58.4900902+02:00[Europe/Chisinau]","0.0","8.86"
+"When sign up","Type invalid year","SUCCESS","2022-11-29T15:06:07.65404+02:00[Europe/Chisinau]","0.0","8.84"
+"When sign up","Type invalid confirm email","SUCCESS","2022-11-29T15:06:16.8136589+02:00[Europe/Chisinau]","0.0","7.41"
+"When sign up test","Type invalid confirm email test","SUCCESS","2022-11-29T15:06:52.4129665+02:00[Europe/Chisinau]","0.0","7.6"
+"When sign up test","Sign up with empty password test","SUCCESS","2022-11-29T15:07:00.3240958+02:00[Europe/Chisinau]","0.0","8.65"
