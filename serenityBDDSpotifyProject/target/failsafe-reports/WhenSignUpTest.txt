@@ -1,20 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: WhenSignUpTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 36.724 s <<< FAILURE! - in WhenSignUpTest
-WhenSignUpTest.typeInvalidYearTest  Time elapsed: 9.578 s  <<< FAILURE!
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 38.835 s <<< FAILURE! - in WhenSignUpTest
+WhenSignUpTest.typeInvalidYearTest  Time elapsed: 9.321 s  <<< FAILURE!
 java.lang.AssertionError: 
 [User should see message, but he doesn't] 
 Expecting value to be true but was false expected:<[tru]e> but was:<[fals]e>
 	at WhenSignUpTest.typeInvalidYearTest(WhenSignUpTest.java:27)
 
-WhenSignUpTest.typeInvalidValuesTest  Time elapsed: 9.112 s  <<< FAILURE!
+WhenSignUpTest.typeInvalidValuesTest  Time elapsed: 10.455 s  <<< FAILURE!
 java.lang.AssertionError: 
 
 Expected size: 7 but was: 4 in:
-[[[ChromeDriver: chrome on WINDOWS (77de27b1601f335668bf40f4329f3f57)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span],
-    [[ChromeDriver: chrome on WINDOWS (77de27b1601f335668bf40f4329f3f57)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span],
-    [[ChromeDriver: chrome on WINDOWS (77de27b1601f335668bf40f4329f3f57)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span],
-    [[ChromeDriver: chrome on WINDOWS (77de27b1601f335668bf40f4329f3f57)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span]]
+[[[ChromeDriver: chrome on WINDOWS (975e064568c47d45bcee07c954c2b44a)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span],
+    [[ChromeDriver: chrome on WINDOWS (975e064568c47d45bcee07c954c2b44a)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span],
+    [[ChromeDriver: chrome on WINDOWS (975e064568c47d45bcee07c954c2b44a)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span],
+    [[ChromeDriver: chrome on WINDOWS (975e064568c47d45bcee07c954c2b44a)] -> xpath: //div[@aria-label="Error indicator" and string-length(text())>0]|//div[@aria-label="Error indicator"]/span]]
 	at WhenSignUpTest.typeInvalidValuesTest(WhenSignUpTest.java:66)
 

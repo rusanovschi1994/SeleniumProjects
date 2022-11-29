@@ -1,2 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"When sign up","Type invalid values","SUCCESS","2022-11-29T15:05:35.560364+02:00[Europe/Chisinau]","0.0","22.46"
+"When sign up","Type invalid values","SUCCESS","2022-11-29T17:08:25.1110159+02:00[Europe/Chisinau]","0.0","24.17"
+"When sign up","Type invalid year","SUCCESS","2022-11-29T17:08:49.7901781+02:00[Europe/Chisinau]","0.0","10.26"
+"When sign up test","Type invalid values test","FAILURE","2022-11-29T17:09:36.06549+02:00[Europe/Chisinau]","0.0","10.39"

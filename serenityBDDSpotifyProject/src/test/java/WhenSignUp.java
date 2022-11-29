@@ -40,13 +40,16 @@ public class WhenSignUp {
     }
 
     @Test
-    public void signUpWithEmptyPassword(){
+    public void signUpWithShortPassword(){
 
         step.open_signup_page();
         step.type_email("sadasdasd");
         step.type_confirmation_email("sdwwwwrwer");
+        step.type_password("1");
         step.type_name("Test");
+        step.should_see_error("Your password is too short.");
         step.should_not_see_error("You need to enter a password.");
+        step.should_see_error_number(3);
     }
 
     @Test
